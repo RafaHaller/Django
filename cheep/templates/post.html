@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<h1 class="ml-2"> COMUNIDAD </h1>
+
+<form class="ml-3" method="POST" action="">
+    {% csrf_token %}
+
+    {% if post is not None %}
+        <input type="hidden" type="number" value="{{post.id}}" name="id">
+    {% endif %}
+
+    <div class=" form-group my-3">
+        <label> Título </label>
+        <input type="text" class="form-control" name="title" placeholder="Título"
+        {% if post is not None %}
+            value="{{post.title}}"
+        {% endif %}
+        >
+    </div>
+    <div class=" form-group my-3">
+        <label> Texto </label>
+        <textarea class="form-control" name="text">{% if post is not None %}{{post.text}}{% endif %}</textarea>
+    </div>
+
+    <button class="btn btn-outline-primary" type="submit"> Enviar </button>
+</form>
+
+{% endblock %}

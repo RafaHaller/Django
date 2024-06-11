@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<h1> INICIO </h1>
+
+{% for p in posts %}
+
+<div class="my-4 py-4 border-bottom">
+    <h2> {{p.title}} </h2>
+    <p> {{p.text}} </p>
+
+    {% for c in p.comment_set.all %}
+        <p> {{c.user.user_name}} escribió: {{c.text}} </p>
+    {% endfor %}
+
+    {% if request.user.is_authenticated and request.user == p.user %}
+        <a href="/post/{{p.id}}"> Editar </a>
+    {% endif %}
+    
+    {% if request.user.is_authenticated %}
+        <form method="POST" action="/comment/">
+            {% csrf_token %}
+            <input type="hidden" value="{{p.id}}" name="post">
+            <div class=" form-group my-3">
+                <textarea class="form-control" name="text" placeholder="Escribe un comentario"></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit"> Enviar comentario </button>
+        </form>
+    {% endif %}
+</div>
+
+{% endfor %}
+
+{% endblock %}

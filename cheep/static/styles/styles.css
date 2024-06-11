@@ -1,0 +1,53 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #111111;
+}
+
+.fotoPrincipal {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style: square;
+}
+
+.cabezal {
+    background: linear-gradient(90deg, rgba(0,163,231,1) 17%, rgba(0,190,233,1) 56%, rgba(0,213,212,1) 100%);
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    border: #00A3E7 3px solid;
+    text-align: center;
+}
+
+th {
+    border: #00A3E7 3px solid;
+    background: #F9F871;
+}
+
+td {
+    border: #00A3E7 3px solid;
+}
+
+.pagina {
+    background: linear-gradient(90deg, rgba(58,231,176,1) 0%, rgba(164,244,137,1) 50%, rgba(249,248,113,1) 100%);
+    color: black;
+}
+
+.piedepagina {
+    background: #F9F871;
+    color: black;
+}
+
